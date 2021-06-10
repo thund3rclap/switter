@@ -1,0 +1,2 @@
+export const CREATE_POST = 'POST/CREATE_POST';
+export const ACCOUNT_SET_USER = 'ACCOUNT_SET_USER';
