@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createPost } from "../redux/actions.js";
+import { PostFormTextContent, PostFormTextArea, PostFormButton } from "../utils/styles.js";
 
 class PostForm extends React.Component {
     constructor(props) {
@@ -39,23 +40,24 @@ class PostForm extends React.Component {
     render() {
         return (
             <form onSubmit={this.submitHandler}>
-                <div className="input-content">
-                    <label htmlFor="title">Заголовок поста</label>
+                <div style={PostFormTextContent}>
+                    <label htmlFor="title">Что у Вас нового?</label>
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Заголовок"
+                        placeholder="Заголовок поста"
                         id="title"
                         value={this.state.title}
                         name="title"
                         onChange={this.changeTextareaHandler}
                     />
                 </div>
-                <div className="input-content">
-                    <label htmlFor="text">Текст поста</label>
+                <div style={PostFormTextContent}>
+                    <label htmlFor="text"></label>
                     <textarea
+                        style={PostFormTextArea}
                         className="form-control"
-                        placeholder="Текст"
+                        placeholder="Текст поста"
                         id="text"
                         value={this.state.text}
                         name="text"
@@ -71,6 +73,7 @@ class PostForm extends React.Component {
                         }}
                         className="btn"
                         type="submit"
+                        style={PostFormButton}
                     >
                         Добавить пост
                     </button>

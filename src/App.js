@@ -5,7 +5,7 @@ import AppRouter from "./components/AppRouter.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Context } from "./index.js";
 import { useContext } from "react";
-// import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
+
 
 export default function App() {
     const { auth } = useContext(Context);

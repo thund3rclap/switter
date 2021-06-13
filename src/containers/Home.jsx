@@ -11,13 +11,14 @@ export default function Home() {
     const { auth, firestore } = useContext(Context);
     const [user] = useAuthState(auth);
     const [messages] = useCollectionData(firestore.collection("messages"));
-    console.log(user)
+    console.log(messages);
     const sendMessages = async (data) => {
         firestore.collection("messages").add({
             uid: user.uid,
             displayName: user.displayName,
             photoURL: user.photoURL,
             created: Date.now(),
+            liked: false,
             ...data,
         });
     };

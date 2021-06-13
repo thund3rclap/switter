@@ -1,5 +1,7 @@
 import { Avatar } from "@material-ui/core";
 import React from "react";
+import { PostLikeButton } from "../utils/styles";
+import LikeButton from "./Like";
 
 export default function Post(props) {
     return (
@@ -15,6 +17,9 @@ export default function Post(props) {
                 >
                     <Avatar src={props.data.photoURL} />
                     <div>{props.data.displayName}</div>
+                    <div>
+                        <LikeButton style={PostLikeButton} />
+                    </div>
                 </div>
                 <h5 className="card-title">{props.data.title}</h5>
                 <p className="card-text">{props.data.text}</p>
