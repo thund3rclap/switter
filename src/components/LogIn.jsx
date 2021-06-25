@@ -3,14 +3,14 @@ import React, { useContext } from "react";
 import { Context } from "../index.js";
 import firebase from "firebase";
 import Switter from "../images/switter.svg";
-import Google from "../images/google.svg";
+// import Google from "../images/google.svg";
 import Facebook from "../images/facebook.svg";
 import {
     ContentWrapper,
     LogoContainer,
     LogInTextContainer,
     LogInButtonContainer,
-    GoogleButton,
+    // GoogleButton,
     FacebookButton,
 } from "../utils/styles";
 
@@ -23,7 +23,12 @@ export default function LogIn(props) {
             provider = new firebase.auth.FacebookAuthProvider();
         } else if (platform === "google") {
             provider = new firebase.auth.GoogleAuthProvider();
-        }
+        } else if (platform === "Instagram") {
+            window.location="https://api.instagram.com/oauth/authorize?client_id=323694832712558&redirect_uri=https://api.switter.maxqnei.com/instalog/&scope=user_profile,user_media&response_type=code"
+            return;
+        } 
+
+        
 
         auth.signInWithPopup(provider)
             .then((x) => {
@@ -33,6 +38,7 @@ export default function LogIn(props) {
                 console.log(error);
             });
     };
+
     return (
         <Container>
             <Grid container style={ContentWrapper}>
@@ -46,7 +52,7 @@ export default function LogIn(props) {
                 </Grid>
                 <Grid style={LogInButtonContainer}>
                     <Box p={0}>
-                        <Button
+                        {/* <Button
                             onClick={login.bind(null, "google")}
                             style={GoogleButton}
                         >
@@ -59,6 +65,13 @@ export default function LogIn(props) {
                         >
                             <img src={Facebook} alt={"Facebook"} />
                             Sign in with Facebook
+                        </Button> */}
+                        <Button
+                            onClick={login.bind(null, "Instagram")}
+                            style={FacebookButton}
+                        >
+                            <img src={Facebook} alt={"Instagram"} />
+                            Sign in with Instagram
                         </Button>
                     </Box>
                 </Grid>

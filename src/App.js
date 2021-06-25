@@ -5,17 +5,19 @@ import AppRouter from "./components/AppRouter.js";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Context } from "./index.js";
 import { useContext } from "react";
+import AuthCheck from "./components/AuthCheck.jsx";
+
 
 
 export default function App() {
     const { auth } = useContext(Context);
     const [user] = useAuthState(auth);
     console.log(user);
-
     return (
         <BrowserRouter>
             <Navbar />
             <AppRouter />
+            <AuthCheck />
         </BrowserRouter>
     );
 }

@@ -1,14 +1,20 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { privateRoutes, publicRoutes } from "../routes";
-import { LOGIN_ROUTE, WALL_ROUTE } from "../utils/consts";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { Context } from "../index";
+import { INSTA_WALL, LOGIN_ROUTE} from "../utils/consts";
+// import { useAuthState } from "react-firebase-hooks/auth";
+// import { Context } from "../index";
+import { useSelector } from "react-redux";
 
-const AppRouter = () => {
-    const { auth } = useContext(Context);
-    const [user] = useAuthState(auth);
-    return user ? (
+export default function AppRouter (props) {
+    
+    // const { auth } = useContext(Context);
+    // const [user] = useAuthState(auth);
+
+    const {idUser} = useSelector( (state) => ({
+        idUser: state.account.id
+    }))
+    return idUser ? (
         <Switch>
             {privateRoutes.map(({ path, Component }) => (
                 <Route
@@ -18,7 +24,7 @@ const AppRouter = () => {
                     exact={true}
                 />
             ))}
-            <Redirect to={WALL_ROUTE} />
+            <Redirect to={INSTA_WALL} />
         </Switch>
     ) : (
         <Switch>
@@ -35,4 +41,4 @@ const AppRouter = () => {
     );
 };
 
-export default AppRouter;
+

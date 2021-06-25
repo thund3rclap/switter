@@ -1,0 +1,50 @@
+.my-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.35s;
+  /* transform: scale(0); */
+}
+
+
+.my-modal.active {
+  opacity: 1;
+  pointer-events: all;
+  /* transform: scale(1); */
+}
+
+.my-modal-content {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 3fr 300px;
+  /* padding: 20px; */
+  background-color: #fff;
+  height: 650px;
+  width: 950px;
+  overflow: hidden;
+}
+
+/* .popup-image img {
+  width: 500px;
+  
+  
+} */
+
+/* .insta-card-photo-container {
+  cursor: "pointer";
+  border: "1px solid lightgrey";
+}
+
+.insta-card-photo-container:active {
+  width: 500px;
+} */
+
