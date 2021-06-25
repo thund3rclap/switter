@@ -1,9 +1,11 @@
 # Welcome to the Switter project
-This project was created with React.js, React.redux, 
+This project was created with React
 
 ## Description
 
-This project was created for people who want to share their thoughts, but do not want to use full-fledged social networks. Our goal is simplicity in everything
+This project was created for people who want to share their thoughts,
+but do not want to use full-fledged social networks. 
+Our goal is simplicity in everything
 
 
 ### Version
